@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: app-postgresql
+    environment:
+      POSTGRES_DB: ${DB_DATABASE
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: app-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+
+volumes:
+  postgres-data:

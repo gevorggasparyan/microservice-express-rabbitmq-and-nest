@@ -1,0 +1,8 @@
+.env
+./user-service/.env
+./history-service/.env
+./manage-user/.env
+
+./user-service/node_modules
+./history-service/node_modules
+./manage-user/node_modules

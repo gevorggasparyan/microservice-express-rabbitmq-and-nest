@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model History {
+  id          Int      @id @default(autoincrement())
+  userId      String   @db.VarChar(255)
+  action      String   @db.VarChar(255)
+  description String?
+  createdAt   DateTime @db.Timestamptz(6)
+}
+
+model SequelizeMeta {
+  name String @id @db.VarChar(255)
+}
+
+model migrations {
+  id        Int    @id(map: "PK_8c82d7f526340ab734260ea46be") @default(autoincrement())
+  timestamp BigInt
+  name      String @db.VarChar
+}
+
+model User {
+  id        String  @id(map: "PK_9862f679340fb2388436a5ab3e4") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  firstName String  @db.VarChar
+  lastName  String  @db.VarChar
+  age       Int
+  gender    String  @db.VarChar
+  problem   Boolean
+}
