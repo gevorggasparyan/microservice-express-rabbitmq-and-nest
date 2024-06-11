@@ -6,3 +6,5 @@
 ./user-service/node_modules
 ./history-service/node_modules
 ./manage-user/node_modules
+
+.idea

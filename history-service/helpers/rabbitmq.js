@@ -1,7 +1,7 @@
 const amqp = require('amqplib');
 
 async function connect() {
-    const connection = await amqp.connect('amqp://rabbitmq:5672');
+    const connection = await amqp.connect('amqp://0.0.0.0:5672');
     return await connection.createChannel();
 }
 

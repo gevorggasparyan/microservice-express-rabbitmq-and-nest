@@ -2,7 +2,7 @@ import amqp from 'amqplib';
 
 
 async function createChannel() {
-    const connection = await amqp.connect(process.env.RABBITMQ_URL as string);
+    const connection = await amqp.connect('amqp://0.0.0.0:5672');
     return await connection.createChannel();
 }
 

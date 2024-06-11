@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node --exec ts-node app.ts",
     "dev": "nodemon --exec ts-node-dev app.ts",
-    "migrate": "npx typeorm migration:run"
+    "migrate": "npx ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d ./database/connection.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
